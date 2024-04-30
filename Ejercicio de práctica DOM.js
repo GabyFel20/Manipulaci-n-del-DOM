@@ -1,36 +1,57 @@
-const IDENTITY_CONTAINER = document.querySelector("#identity-container");
-const USER ={
-    id:1,
-    username: 'BookLover123',
-    desc: 'Avid reader and coffe entusiast',
-    age: 29,
-    fav_books:{
-        books: ["To kill a Mockingbird",
-        "1984",
-        "Pride and prejudice"],
-    },
+const CARDS_CONTAINER =document.querySelector("#card-container");
+
+//Crear tarjeta 
+const USER = { 
+    id: 1,
+    username: "User Name",
+    desc:"Sobre mí", 
+    age: 23,
+    fav_books: { 
+        books: [
+            "Brida",
+            "Ensayo sobre la ceguera",
+            "La mecánica del corazón", 
+            "Angeles y Demonios", 
+            "El principito",
+        ],        
+    }, 
+};
+//Crear seccciones  
+function CreateElements () {
+    const cardObj = { 
+        name_section: document.Element("h3"),
+        desc_section:document.Element("p)"),
+        age_section: document.createElement("p"),
+        book_section:document.createElement("div"), 
+    };
+    return cardObj;
+};
+console.log(USER);
+//Lista 
+
+//Crear tarjeta 
+//Inyectamos info 
+function InjectData (obj){
+    const booklist = USER.fav_books.books.map((e) => { 
+        const item = document.createElement("ul"); 
+        item.textContent = e; 
+        return item; 
+    })
+    obj.name_section.textContent = USER.username; 
+    obj.desc_section.textContent = USER.desc;
+    obj.age_section.textContent = USER.age; 
+    obj.book_section.append(...booklist);
 };
 
-const identity= document.createElement("div");
-const name_section = document. createElement ("h3");
-const desc_section = document. createElement ("p");
-const age_section = document.createElement ("p");
-const book_section = document.createElement("div");
-//lista----------------------------------------
-const bookList = USER.fav_books.books.map((e)=> {
-    const item = document.createElement("ul");
-    item.textContent = e;
-    return item;
-});
+function RenderCard (cardObj) { 
+const card = document.createElement("div"); 
+card.append(cardObj.name_section, 
+    cardObj.desc_section, 
+    cardObj_agesection, 
+    cardObj_booksection
+);
+    CARDS_CONTAINER.appendChild(card); 
+};
 
-console.log(bookList);
-
-
-name_section.textContent = USER.username;
-desc_section.textContent = USER.desc;
-age_section.textContent = USER.age;
-book_section.append(...bookList);
-identity.append(name_section, desc_section, age_section, book_section);
-
-
-IDENTITY_CONTAINER.appendChild(identity);
+const cardData = CreateElements(); 
+InjectData(cardData);
