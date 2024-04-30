@@ -30,7 +30,7 @@ name_section.textContent = USER.username;
 desc_section.textContent = USER.desc;
 age_section.textContent = USER.age;
 book_section.append(...bookList);
-card.append(name_section, desc_section, age_section, book_section);
+identity.append(name_section, desc_section, age_section, book_section);
 
 
-IDENTITY_CONTAINER_CONTAINER.appendChild(identity);
+IDENTITY_CONTAINER.appendChild(identity);
