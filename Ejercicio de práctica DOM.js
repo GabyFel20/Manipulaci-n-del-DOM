@@ -1,21 +1,28 @@
 const CARDS_CONTAINER =document.querySelector("#card-container");
 
 
-const USER = { 
-    id: 1,
-    username: "User Name",
-    desc:"Sobre mí", 
-    age: 23,
-    fav_books: { 
-        books: [
-            "Brida",
-            "Ensayo sobre la ceguera",
-            "La mecánica del corazón", 
-            "Angeles y Demonios", 
-            "El principito",
-        ],        
-    }, 
-};
+const USERS = [
+    {
+        id:1
+        username: "BookLover123",
+        desc: "Avid reader and coffe enthusiast.",
+        age:29,
+        fav_books: {
+            books: ["To kill a MockingBird", "1984", "Pride and Prejudice"],
+        },
+    },
+    {
+        id:2
+        username: "Literature_junkie",
+        desc: "Poetry lover and amateur writer.",
+        age:35,
+        fav_books: {
+            books: ["The Great Gatsby", "Invisible Man", "Beloved"],
+        },
+    },
+];
+    
+
 function createElements(){
     const cardObj = {
         name_section: document.createElement("h3"),
@@ -28,16 +35,16 @@ function createElements(){
 }
 
 
-function injectData(obj) {
-    const bookList= USER.fav_books.books.map((e)=>{
+function injectData(obj. user) {
+    const bookList= user.fav_books.books.map((e)=>{
         const item=document.createElement("ul");
         item .textContent=e;
         return item;
      });
 
-    obj.name_section.textContent = USER.username; 
-    obj.desc_section.textContent = USER.desc;
-    obj.age_section.textContent  = USER.age; 
+    obj.name_section.textContent = user.username; 
+    obj.desc_section.textContent = user.desc;
+    obj.age_section.textContent  = user.age; 
     obj.book_section.append(...bookList);
     renderCard(obj);
 }
@@ -54,8 +61,12 @@ function renderCard(cardObj) {
     CARDS_CONTAINER.appendChild(card);
 }
 
-const cardData = createElements();
-injectData(cardData);
+USERS.forEach((user) =>{
+    const cardData= createElements();
+    injectData( cardData.user);
+});
+
+
 
 
 
