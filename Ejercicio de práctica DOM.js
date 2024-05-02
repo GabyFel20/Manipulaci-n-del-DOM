@@ -3,8 +3,8 @@ const CARDS_CONTAINER =document.querySelector("#card-container");
 
 const USERS = [
     {
-        id:1
-        username: "BookLover123",
+        id:1,
+        username:"BookLover123",
         desc: "Avid reader and coffe enthusiast.",
         age:29,
         fav_books: {
@@ -12,7 +12,7 @@ const USERS = [
         },
     },
     {
-        id:2
+        id:2,
         username: "Literature_junkie",
         desc: "Poetry lover and amateur writer.",
         age:35,
@@ -35,7 +35,7 @@ function createElements(){
 }
 
 
-function injectData(obj. user) {
+function injectData(obj, user) {
     const bookList= user.fav_books.books.map((e)=>{
         const item=document.createElement("ul");
         item .textContent=e;
