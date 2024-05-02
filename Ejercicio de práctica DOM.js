@@ -63,7 +63,7 @@ function renderCard(cardObj) {
 
 USERS.forEach((user) =>{
     const cardData= createElements();
-    injectData( cardData.user);
+    injectData( cardData, user);
 });
 
 
